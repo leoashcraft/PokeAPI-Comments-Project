@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col">
+        <img src="{{url_for('static',filename='group.jpg')}}" class="catch"><br /><br />
+        {% if current_user.is_authenticated %}
+        <h5>Pokemon Search:</h5>
+                You can use the search field below to search for all 898 Pokemon.<br />
+        <form class="d-flex" action="{{url_for('pokemon')}}" method="POST">
+        {{ g.form.hidden_tag() }}
+        {{ g.form.search(class="form-control me-2") }}
+        {{ g.form.submit(class="btn btn-outline-success") }}
+        </form>
+        {% else %}
+        <h5 style="text-align: center;">You must log in before using the search feature.<br /><br />
+        <a href="{{url_for('login')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a>
+</h5>
+
+        {% endif %}
+    </div>
+    <div class="col"></div>
+</div>
+{% endblock %}

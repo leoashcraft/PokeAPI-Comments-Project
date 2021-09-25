@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+    {% block css%}
+        {# custom css for page #}
+    {%endblock%}
+{% block content %}
+<h1>Register</h1>
+<small style="color:red">{{error}}</small>
+
+<form action="{{url_for('register')}}" method="POST">
+  {{ form.hidden_tag() }}
+
+  {# first_name section #}
+  {{ form.first_name.label(class="form-label") }}
+  {{ form.first_name(class="form-control") }}
+
+  {# last_name section #}
+  {{ form.last_name.label(class="form-label") }}
+  {{ form.last_name(class="form-control") }}
+
+  {# email section #}
+  {{ form.email.label(class="form-label") }}
+  {{ form.email(class="form-control") }}
+
+  {# email errors #}
+  {% for error in form.email.errors %}
+   {{ error }}
+  {% endfor %}
+
+  {# password section #}
+  {{ form.password.label(class="form-label") }}
+  {{ form.password(class="form-control") }}
+
+  {# password section #}
+  {{ form.confirm_password.label(class="form-label") }}
+  {{ form.confirm_password(class="form-control") }}
+
+  {# email errors #}
+  {% for error in form.confirm_password.errors %}
+   {{ error }}
+  {% endfor %}
+
+  {# submit section #}
+  {{ form.submit(class="btn btn-primary") }}
+</form>
+
+
+
+
+
+{% endblock %}

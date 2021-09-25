@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static',filename='allpokemons.css')}}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mb-4">{{ pokemon_owner }} collection</h1>
+
+     <div class="container-fluid text-center">
+        <div class="row g-2">
+            {% for pokemon in pokemons %}
+                <div class="col-12 col-sm-6 col-md-6">
+                    <div class="p-3 text-center card">
+                        <p class="card-header text-center"><a class="text-dark text-decoration-none" href="">{{ pokemon}}</a></p>
+                        <p><img src="{{ pokemon.spritedata }}" class="" alt="..." height="100" width="100"></p>
+                        <p class="" style="width: 100%;"><a style="width: 100%;" class="more btn btn-primary btn-lg" href="{{ url_for('singlepokemon', pokemon_owner_id = pokemon_owner_id, pokemon = pokemon ) }}">Comment</a></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+

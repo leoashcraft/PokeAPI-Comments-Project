@@ -1,0 +1,61 @@
+.container{
+    margin: 50px 30px;
+}
+
+.logo{
+    width: auto;
+    height: 40px;
+}
+
+.icon{
+    width:40px;
+    height: 40px;
+}
+
+.error h3{
+    color: red;
+    text-align: center;
+}
+
+.error p{
+    color: red;
+    text-align: center;
+}
+
+.pokesprite{
+}
+
+.pokesprite{
+    text-align: center;
+    width: 90%;
+    height: auto;
+    
+}
+
+.pokestats{
+    
+}
+
+#rcorners3 {
+    margin-top:15px;
+    padding-top: 33px;
+    padding-bottom: 33px;
+    border-radius: 25px;
+    background:rgba(255,225,0,255);
+    border:10px solid rgba(41,92,158,255);
+  }
+
+.catch{
+    text-align: center;
+    width: 100%;
+    height: auto;
+}
+
+.catch img{
+    width: 550px;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+}

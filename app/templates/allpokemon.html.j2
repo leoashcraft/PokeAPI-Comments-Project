@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static',filename='allpokemons.css')}}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mb-4">All pokemons</h1>
+
+     <div class="container-fluid">
+        <div class="row g-2">
+            {% for user in users %}
+                <div class="col-12 col-sm-6 col-md-6">
+                    <div class="p-3 text-center card category-card">
+                        <p class="card-header text-center"><a class="text-dark text-decoration-none" href="">{{ user.first_name }} {{ user.last_name }}</a></p>
+                        {% if user.pokemons == [] %}
+                            <img src="" class="d-block w-100" alt="..." height="75" width="100">
+                        <p>No pokemon</p>
+
+                        {% else %}
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner pt-3">
+                                <script>
+                                    console.log("{{ user.pokemons }}")
+                                </script>
+                                {% for pokemon in user.pokemons %}
+                                    {% if loop.index == 1 %}
+                                        <div class="carousel-item active">
+                                            <img src="{{ pokemon.spritedata }}" class="d-block w-100" alt="..." height="100" width="100">
+                                        </div>
+                                    {% else %}
+                                    <div class="carousel-item ">
+                                        <img src="{{ pokemon.spritedata }}" class="d-block w-100" alt="..." height="100" width="100">
+                                    </div>
+                                    {% endif %}
+                                    
+                                {% endfor %}
+                              
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+
+                        <p><img src="" alt="" srcset=""></p>
+                        <p class="" style="width: 100%;"><a style="width: 100%;" class="more btn btn-primary btn-lg" href="{{url_for('userpokemon', pokemon_owner_id = user.id)}}">View more</a></p>
+                    </div>
+                </div>
+        
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
